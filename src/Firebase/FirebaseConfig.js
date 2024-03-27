@@ -1,4 +1,9 @@
-import firebase from "firebase";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/storage';
+
+
 
 
 
@@ -13,8 +18,9 @@ const firebaseApp = firebase.initializeApp({
   //,measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 });
 
-const db = firebaseApp.firestore();
-const auth = firebase.auth();
-const storage = firebase.storage();
+export const db = firebaseApp.firestore();
+export const auth = firebase.auth();
+export const storage = firebase.storage();
 
-export { db, auth, storage };
+
+export default firebase;

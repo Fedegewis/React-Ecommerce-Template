@@ -8,21 +8,19 @@ function Footer() {
       
         <Container textAlign="center" className="footer__container">
           <Divider inverted section />
-          <Image
-            centered
-            size="mini"
-            src="https://img.icons8.com/doodle/96/000000/user-male-circle.png"
-            alt="userPic"
-          />
+         
           <List horizontal inverted divided link size="small">
-            <List.Item as="a" href="https://github.com/Rajangrg">
-              By Rajan Gurung
+            <List.Item as="a" href="https://www.linkedin.com/in/federico-gewisgold-8729b5187/">
+              By Fede Gewis
             </List.Item>
-            <List.Item as="a" href="https://github.com/Rajangrg/React-Ecommerce-Template">
-              Source Code
+            <List.Item as="a" href="https://www.productminds.io/">
+              Product Minds 
             </List.Item>
-            <List.Item as="a" href="https://github.com/Rajangrg/React-Ecommerce-Template/blob/master/LICENSE">
-              MIT License
+            <List.Item as="a" href="https://www.linkedin.com/in/antonny-santos/">
+              Tech Supervisor
+            </List.Item>
+            <List.Item as="a" href="https://www.linkedin.com/in/aline-nami-onishi/">
+              Director of Operations
             </List.Item>
           </List>
         </Container>
