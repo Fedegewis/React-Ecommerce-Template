@@ -1,12 +1,16 @@
 import React from "react";
 import { useStateValue } from "../../StateProvider/StateProvider";
 import CheckoutProduct from "../../components/CheckoutProduct/CheckoutProduct";
-import { Container, Item, Card, Grid, Message } from "semantic-ui-react";
+import { Container, Item, Card, Grid, Message, Button } from "semantic-ui-react";
 import "./Checkout.css";
 import SubTotal from "../../components/SubTotal/SubTotal";
 
 function Checkout() {
   const [{ basket }] = useStateValue();
+
+  // URL de la página de Product Minds
+  const productMindsURL = "https://www.productminds.io/";
+
   return (
     <div className="checkout">
       <Container>
@@ -35,18 +39,16 @@ function Checkout() {
                     )}
                     <Card fluid className="checkout__card">
                       <Item.Group>
-                        {basket?.map((item) => {
-                          return (
-                            <CheckoutProduct
-                              key={item.id}
-                              id={item.id}
-                              title={item.title}
-                              imageUrl={item.imageUrl}
-                              price={item.price}
-                              rating={item.rating}
-                            ></CheckoutProduct>
-                          );
-                        })}
+                        {basket?.map((item) => (
+                          <CheckoutProduct
+                            key={item.id}
+                            id={item.id}
+                            title={item.title}
+                            imageUrl={item.imageUrl}
+                            price={item.price}
+                            rating={item.rating}
+                          />
+                        ))}
                       </Item.Group>
                     </Card>
                   </div>
@@ -58,7 +60,13 @@ function Checkout() {
                 <Grid.Column width={6}>
                   <Card>
                     <Item.Group divided>
-                      <SubTotal></SubTotal>
+                      <SubTotal />
+                      {/* Enlace para redirigir a la página de Product Minds */}
+                      <a href={productMindsURL} target="_blank" rel="noopener noreferrer">
+                        <Button color="green" fluid>
+                          Purchase
+                        </Button>
+                      </a>
                     </Item.Group>
                   </Card>
                 </Grid.Column>
