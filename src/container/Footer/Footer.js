@@ -16,11 +16,14 @@ function Footer() {
             <List.Item as="a" href="https://www.productminds.io/">
               Product Minds 
             </List.Item>
-            <List.Item as="a" href="https://www.linkedin.com/in/antonny-santos/">
-              Tech Supervisor
-            </List.Item>
             <List.Item as="a" href="https://www.linkedin.com/in/aline-nami-onishi/">
               Director of Operations
+            </List.Item>
+            <List.Item as="a" href="https://www.linkedin.com/in/antonny-santos/">
+              Tech Supervisor 1
+            </List.Item>
+            <List.Item as="a" href="https://www.linkedin.com/in/agustinaleon/">
+              Tech Supervisor 2 
             </List.Item>
           </List>
         </Container>
