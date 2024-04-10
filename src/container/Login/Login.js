@@ -3,6 +3,7 @@ import { Container, Card, Form, Button, Grid } from "semantic-ui-react";
 import "./Login.css";
 import { auth } from "../../Firebase/FirebaseConfig";
 import { useHistory } from "react-router-dom";
+import * as braze from "@braze/web-sdk";
 
 function Login() {
   //router
@@ -10,6 +11,8 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState(""); // Agrega estado para el nombre
+  const [lastName, setLastName] = useState(""); // Agrega estado para el apellido
 
   const loginUser = (event) => {
     event.preventDefault();
@@ -17,6 +20,9 @@ function Login() {
       auth
         .signInWithEmailAndPassword(email, password)
         .then((authUser) => {
+          const userID= authUser.user.uid;
+          braze.changeUser(userID);
+          braze.logCustomEvent("Login completed");
           history.push("/");
         })
         .catch((error) => {
@@ -36,6 +42,12 @@ function Login() {
       auth
         .createUserWithEmailAndPassword(email, password)
         .then((authUser) => {
+          const userID= authUser.user.uid;
+          braze.changeUser(userID);
+          braze.getUser().setEmail(email);
+          braze.getUser().setFirstName(firstName);
+          braze.getUser().setLastName(lastName);
+          braze.logCustomEvent("Registration completed");
           history.push("/");
         })
         .catch((error) => {
@@ -85,6 +97,22 @@ function Login() {
             <Card fluid>
               <Form className="register__form">
                 <Form.Field required>
+                  <label>First Name</label>
+                  <input
+                    placeholder="First Name"
+                    type="text"
+                    onChange={(event) => setFirstName(event.target.value)}
+                  />
+                </Form.Field>
+                <Form.Field required>
+                  <label>Last Name</label>
+                  <input
+                    placeholder="Last Name"
+                    type="text"
+                    onChange={(event) => setLastName(event.target.value)}
+                  />
+                </Form.Field>
+                <Form.Field required>
                   <label>E-mail</label>
                   <input
                     placeholder="Email"
@@ -121,4 +149,5 @@ function Login() {
 }
 
 export default Login;
+
 

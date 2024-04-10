@@ -1,6 +1,7 @@
 import React from "react";
 import { Item, Rating, Button, Divider } from "semantic-ui-react";
 import "./CheckoutProduct.css";
+import * as braze from "@braze/web-sdk";
 
 import { useStateValue } from "../../StateProvider/StateProvider";
 
@@ -11,6 +12,11 @@ function CheckoutProduct({ id, title, price, rating, imageUrl }) {
       type:'REMOVE_FROM_BASKET',
       id
     })
+    braze.logCustomEvent("Product removed from cart",{
+      title:title,
+      rating:rating,
+      price:price
+    });
   };
 
   return (
