@@ -24,7 +24,6 @@ function Login() {
           braze.changeUser(userID);
           braze.logCustomEvent("Login completed");
           history.push("/");
-          GLIFSDJNFKDSB;FKSD
         })
         .catch((error) => {
           alert(
