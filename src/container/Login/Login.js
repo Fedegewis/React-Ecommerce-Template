@@ -3,7 +3,7 @@ import { Container, Card, Form, Button, Grid } from "semantic-ui-react";
 import "./Login.css";
 import { auth } from "../../Firebase/FirebaseConfig";
 import { useHistory } from "react-router-dom";
-import * as braze from "@braze/web-sdk";
+
 
 function Login() {
   //router
@@ -20,9 +20,6 @@ function Login() {
       auth
         .signInWithEmailAndPassword(email, password)
         .then((authUser) => {
-          const userID= authUser.user.uid;
-          braze.changeUser(userID);
-          braze.logCustomEvent("Login completed");
           history.push("/");
         })
         .catch((error) => {
@@ -42,12 +39,6 @@ function Login() {
       auth
         .createUserWithEmailAndPassword(email, password)
         .then((authUser) => {
-          const userID= authUser.user.uid;
-          braze.changeUser(userID);
-          braze.getUser().setEmail(email);
-          braze.getUser().setFirstName(firstName);
-          braze.getUser().setLastName(lastName);
-          braze.logCustomEvent("Registration completed");
           history.push("/");
         })
         .catch((error) => {

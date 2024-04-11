@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Image, Rating, Button } from "semantic-ui-react";
 import "./Product.css";
 import { useStateValue } from "../../StateProvider/StateProvider";
-import * as braze from "@braze/web-sdk";
+
 
 function Product({ id, title, price, rating, imageUrl }) {
   const [, dispatch] = useStateValue();
@@ -17,11 +17,6 @@ function Product({ id, title, price, rating, imageUrl }) {
         rating,
         imageUrl,
       },
-    });
-    braze.logCustomEvent("Product added to cart",{
-      title:title,
-      rating:rating,
-      price:price
     });
   };
   return (

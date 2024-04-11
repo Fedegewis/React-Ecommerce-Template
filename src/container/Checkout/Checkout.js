@@ -4,7 +4,7 @@ import CheckoutProduct from "../../components/CheckoutProduct/CheckoutProduct";
 import { Container, Item, Card, Grid, Message, Button } from "semantic-ui-react";
 import "./Checkout.css";
 import SubTotal from "../../components/SubTotal/SubTotal";
-import * as braze from "@braze/web-sdk";
+
 
 function Checkout() {
   const [{ basket }] = useStateValue();
@@ -12,9 +12,6 @@ function Checkout() {
   // URL de la página de Product Minds
   const productMindsURL = "https://www.productminds.io/";
 
-  const handlePurchaseMade = () => {
-    braze.logCustomEvent("Purchase made");
-  };
 
   return (
     <div className="checkout">
@@ -67,7 +64,7 @@ function Checkout() {
                     <Item.Group divided>
                       <SubTotal />
                       <a href={productMindsURL} target="_blank" rel="noopener noreferrer">
-                        <Button color="green" fluid onClick={handlePurchaseMade}>
+                        <Button color="green" fluid >
                           Purchase
                         </Button>
                       </a>

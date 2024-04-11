@@ -5,14 +5,12 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../StateProvider/StateProvider";
 import { auth } from "../../Firebase/FirebaseConfig";
-import * as braze from "@braze/web-sdk";
+
 
 function Header() {
   const [{ basket, user }] = useStateValue();
 
-  const handleCartViewed = () => {
-    braze.logCustomEvent("Cart viewed");
-  }
+ 
 
   const login = () => {
     if (user) {
@@ -41,7 +39,7 @@ function Header() {
               <Icon name="upload" /> Add product
             </Menu.Item>
           </Link>
-          <Link to="/checkout" onClick = {handleCartViewed}>
+          <Link to="/checkout" >
             <Menu.Item>
               <Icon name="shop" /> {basket?.length}
             </Menu.Item>
