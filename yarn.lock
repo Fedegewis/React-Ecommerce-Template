@@ -1276,6 +1276,11 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@braze/service-worker@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.npmjs.org/@braze/service-worker/-/service-worker-5.2.0.tgz"
+  integrity sha512-YCt1x998TZ4uDIxucl7VccQESNzqxm9fHRo7xKltpuIw3xI7Ul1xe15qtQP/eGKwaBN79p/EDzUtPeq2DJDNpQ==
+
 "@braze/web-sdk@^5.2.0":
   version "5.2.0"
   resolved "https://registry.npmjs.org/@braze/web-sdk/-/web-sdk-5.2.0.tgz"

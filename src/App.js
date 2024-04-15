@@ -14,6 +14,7 @@ import { auth } from "./Firebase/FirebaseConfig";
 import { useStateValue } from "./StateProvider/StateProvider";
 import UploadImage from "./container/UploadImage/UploadImage";
 
+
 import * as braze from "@braze/web-sdk";
 
 function App() {
@@ -22,15 +23,11 @@ function App() {
 //------------------------------------BRAZE-----------------------------
 
 braze.initialize('7b254876-29bf-49a6-a149-e78d29004a97', {
-  baseUrl:"sdk.iad-06.braze.com",
-  serviceWorkerLocation:"/service-worker.js"
+  baseUrl:"sdk.iad-06.braze.com"
 });
 
 braze.openSession();
-braze.requestPushPermission(() => {
-  braze.logCustomEvent("send me push");
-  braze.requestImmediateDataFlush();
-});
+braze.requestPushPermission(); 
 
 
 //-------------------------------BRAZE-----------------------------------
