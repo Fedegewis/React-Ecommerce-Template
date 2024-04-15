@@ -28,8 +28,7 @@ braze.initialize('7b254876-29bf-49a6-a149-e78d29004a97', {
 
 braze.openSession();
 braze.requestPushPermission(() => {
-  braze.logCustomEvent("send me push");
-  braze.requestImmediateDataFlush();
+  braze.isPushPermissionGranted();
 });
 
 
